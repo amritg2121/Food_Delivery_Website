@@ -6,7 +6,10 @@ const mongoDB = require("./db")
 mongoDB();
 
 app.use(cors({
-  origin: 'https://food-delivery-website-black-three.vercel.app',
+  origin: [
+    'https://food-delivery-website-black-three.vercel.app',
+    'https://food-delivery-website-nu-three.vercel.app'
+  ],
   credentials: true
 }));
 
