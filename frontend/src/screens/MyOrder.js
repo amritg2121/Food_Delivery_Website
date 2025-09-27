@@ -5,9 +5,9 @@ export default function MyOrder() {
     const [orderData, setorderData] = useState("")
     const fetchMyOrder = async () => {
         console.log(localStorage.getItem('userEmail'))
-    await fetch("https://food-delivery-backend.onrender.com/api/myOrderData", {
+    await fetch("https://food-delivery-website-vphu.onrender.com/api/myOrderData", {
             // credentials: 'include',
-            // Origin:"https://food-delivery-backend.onrender.com/login",
+            // Origin:"https://food-delivery-website-vphu.onrender.com/login",
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

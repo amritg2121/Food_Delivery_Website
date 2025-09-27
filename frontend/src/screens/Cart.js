@@ -15,9 +15,9 @@ export default function Cart() {
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
     // console.log(data,localStorage.getItem("userEmail"),new Date())
-    let response = await fetch("https://food-delivery-backend-syrz.onrender.com/api/orderData", {
+    let response = await fetch("https://food-delivery-website-vphu.onrender.com/api/orderData", {
       // credentials: 'include',z
-      // Origin:"https://food-delivery-backend-syrz.onrender.com/login",
+      // Origin:"https://food-delivery-website-vphu.onrender.com/login",
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
