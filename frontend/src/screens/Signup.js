@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {Link, useNavigate } from 'react-router-dom';
+
+const API_URL = process.env.REACT_APP_API_URL;
   
 export default function Signup() {
     const [credentials, setcredentials] = useState({ name: "", email: "", password: "", geolocation: "" });
@@ -26,7 +28,7 @@ export default function Signup() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch("https://food-delivery-website-60qf.onrender.comapi/creatuser", {
+    const response = await fetch(`${API_URL}/api/creatuser`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name: credentials.name, email: credentials.email, password: credentials.password, location: credentials.geolocation })

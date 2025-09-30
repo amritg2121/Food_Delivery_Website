@@ -7,14 +7,20 @@ mongoDB();
 // Use the cors package for better CORS handling
 const cors = require('cors')
 
-// Allow requests from your local frontend and deployed Vercel frontend
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://food-delivery-website-woad.vercel.app/" // <-- Replace with your actual Vercel URL
-]
 
+// Allow requests from any Vercel deployment and localhost for dev
 app.use(cors({
-  origin: allowedOrigins,
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true); // allow non-browser requests
+    if (
+      origin.endsWith('.vercel.app') ||
+      origin === 'http://localhost:3000' ||
+      origin === 'http://localhost:5000'
+    ) {
+      return callback(null, true);
+    }
+    return callback(new Error('Not allowed by CORS'));
+  },
   credentials: true
 }))
 

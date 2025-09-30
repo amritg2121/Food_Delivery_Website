@@ -1,5 +1,7 @@
 import React from 'react'
 import { useCart, useDispatchCart } from '../components/ContextReducer';
+
+const API_URL = process.env.REACT_APP_API_URL;
 export default function Cart() {
   let data = useCart();
   let dispatch = useDispatchCart();
@@ -15,9 +17,9 @@ export default function Cart() {
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
     // console.log(data,localStorage.getItem("userEmail"),new Date())
-    let response = await fetch("https://food-delivery-website-60qf.onrender.comapi/orderData", {
+  let response = await fetch(`${API_URL}/api/orderData`, {
       // credentials: 'include',z
-      // Origin:"https://food-delivery-website-60qf.onrender.comlogin",
+      // Origin:"https://food-delivery-website-dfou.onrender.com/login",
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

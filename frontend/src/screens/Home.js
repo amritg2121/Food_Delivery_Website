@@ -3,6 +3,8 @@ import Navbar from '../components/Navbar'
 import Card from '../components/card'
 import Footer from '../components/Footer'
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 
 export default function Home() {
   const [search, setSearch] = useState('')
@@ -10,7 +12,7 @@ export default function Home() {
   const [foodItem, setFoodItem] = useState([])
 
   const loadData = async () => {
-    let response = await fetch("https://food-delivery-website-60qf.onrender.comapi/foodData", {
+  let response = await fetch(`${API_URL}/api/foodData`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
