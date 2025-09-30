@@ -3,13 +3,14 @@ import Navbar from '../components/Navbar'
 import Card from '../components/card'
 import Footer from '../components/Footer'
 
+
 export default function Home() {
   const [search, setSearch] = useState('')
   const [foodCat, setFoodCat] = useState([])
   const [foodItem, setFoodItem] = useState([])
 
   const loadData = async () => {
-  let response = await fetch("https://food-delivery-website-vphu.onrender.com/api/foodData", {
+    let response = await fetch("http://localhost:5000/api/foodData", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
@@ -20,8 +21,6 @@ export default function Home() {
 
     setFoodItem(response[0]);
     setFoodCat(response[1]);
-    // console.log(response[0],response[1]);
-
   }
 
   useEffect(() => {
@@ -31,7 +30,7 @@ export default function Home() {
 
   return (
     <div>
-      <div><Navbar /></div>
+  <div><Navbar /></div>
       <div> <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel"  data-bs-interval="2000" style={{ objectFit: "contain !important" }}>
         <div className="carousel-inner">
           <div className=" carousel-caption" style={{ zIndex: "10" }}>
@@ -63,7 +62,7 @@ export default function Home() {
 
       <div className='container'>
         {
-          foodCat !== []
+          foodCat.length > 0
             ? foodCat.map((data) => {
               return (
                 // justify-content-center

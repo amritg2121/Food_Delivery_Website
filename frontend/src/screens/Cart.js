@@ -15,9 +15,9 @@ export default function Cart() {
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
     // console.log(data,localStorage.getItem("userEmail"),new Date())
-    let response = await fetch("https://food-delivery-website-vphu.onrender.com/api/orderData", {
+    let response = await fetch("http://localhost:5000/api/orderData", {
       // credentials: 'include',z
-      // Origin:"https://food-delivery-website-vphu.onrender.com/login",
+      // Origin:"http://localhost:5000/login",
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ export default function Cart() {
         <table className='table table-hover '>
           <thead className=' text-success fs-4'>
             <tr>
-              <th scope='col' >#</th>
+              <th scope='col' >S.NO.</th>
               <th scope='col' >Name</th>
               <th scope='col' >Quantity</th>
               <th scope='col' >Option</th>
@@ -53,13 +53,18 @@ export default function Cart() {
           </thead>
           <tbody>
             {data.map((food, index) => (
-              <tr>
-                <th scope='row' >{index + 1}</th>
-                <td >{food.name}</td>
+              <tr key={index}>
+                <th scope='row'>{index + 1}</th>
+                <td>{food.name}</td>
                 <td>{food.qty}</td>
                 <td>{food.size}</td>
                 <td>{food.price}</td>
-                <td ><button type="button" className="btn p-0"></button></td></tr>
+                <td>
+                  <button type="button" className="btn btn-danger p-1" onClick={() => dispatch({ type: "REMOVE", index })}>
+                    <span style={{ fontSize: '1.2rem' }}>&#128465;</span>
+                  </button>
+                </td>
+              </tr>
             ))}
           </tbody>
         </table>

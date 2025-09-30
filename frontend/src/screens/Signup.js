@@ -8,7 +8,6 @@ export default function Signup() {
     const signupModalRef = useRef(null);
 
     useEffect(() => {
-        // Wait for the DOM to be available and open the modal
         if (signupModalRef.current) {
             signupModalRef.current.classList.add("show");
             signupModalRef.current.style.display = "block";
@@ -22,11 +21,12 @@ export default function Signup() {
             signupModalRef.current.style.display = "none";
             document.body.classList.remove("modal-open");
         }
+        navigate('/');
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    const response = await fetch("https://food-delivery-website-vphu.onrender.com/api/creatuser", {
+        const response = await fetch("http://localhost:5000/api/creatuser", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name: credentials.name, email: credentials.email, password: credentials.password, location: credentials.geolocation })
@@ -44,6 +44,8 @@ export default function Signup() {
     const onChange = (event) => {
         setcredentials({ ...credentials, [event.target.name]: event.target.value });
     };
+
+
 
     return (
         <div className='container'>
