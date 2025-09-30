@@ -26,7 +26,7 @@ export default function Signup() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:5000/api/creatuser", {
+        const response = await fetch("https://food-delivery-website-60qf.onrender.comapi/creatuser", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name: credentials.name, email: credentials.email, password: credentials.password, location: credentials.geolocation })

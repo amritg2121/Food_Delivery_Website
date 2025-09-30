@@ -5,9 +5,9 @@ export default function MyOrder() {
     const [orderData, setorderData] = useState("")
     const fetchMyOrder = async () => {
         console.log(localStorage.getItem('userEmail'))
-            await fetch("http://localhost:5000/api/myOrderData", {
+            await fetch("https://food-delivery-website-60qf.onrender.comapi/myOrderData", {
             // credentials: 'include',
-            // Origin:"http://localhost:5000/login",
+            // Origin:"https://food-delivery-website-60qf.onrender.comlogin",
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
