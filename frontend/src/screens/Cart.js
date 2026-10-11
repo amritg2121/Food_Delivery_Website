@@ -45,7 +45,7 @@ export default function Cart() {
         <table className='table table-hover '>
           <thead className=' text-success fs-4'>
             <tr>
-              <th scope='col' >S.NO.</th>
+              <th scope='col' className='d-none d-sm-table-cell'>S.NO.</th>
               <th scope='col' >Name</th>
               <th scope='col' >Quantity</th>
               <th scope='col' >Option</th>
@@ -56,7 +56,7 @@ export default function Cart() {
           <tbody>
             {data.map((food, index) => (
               <tr key={index}>
-                <th scope='row'>{index + 1}</th>
+                <th scope='row' className='d-none d-sm-table-cell'>{index + 1}</th>
                 <td>{food.name}</td>
                 <td>{food.qty}</td>
                 <td>{food.size}</td>

@@ -4,7 +4,7 @@ const User = require('../models/User')
 const { body, validationResult } = require('express-validator');
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const jwtSecret = "HeyMynameisthisAndIamyourhost@#!"
+const jwtSecret = process.env.JWT_SECRET
 
 router.post("/creatuser", [
     body('email').isEmail(),
@@ -24,7 +24,8 @@ router.post("/creatuser", [
                 password: secPassword,
                 email: req.body.email,
                 location: req.body.location
-            }).then(res.json({ success: true }))
+            })
+            res.json({ success: true })
 
         } catch (error) {
             console.log(error)

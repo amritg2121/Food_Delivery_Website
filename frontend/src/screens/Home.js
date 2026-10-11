@@ -42,13 +42,13 @@ export default function Home() {
             </div>
           </div>
           <div className="carousel-item active" data-bs-interval="2000">
-            <img src="/burger.jpg" className="d-block w-100 " style={{ filter: "brightness(30%)", height: '76vh' }} alt="No image" />
+            <img src="/burger.jpg" className="hero-img" alt="Burger" />
           </div>
           <div className="carousel-item" data-bs-interval="2000">
-            <img src="/pizza.jpg" className="d-block w-100 " style={{ filter: "brightness(30%)", height: '76vh' }} alt="No image" />
+            <img src="/pizza.jpg" className="hero-img" alt="Pizza" />
           </div>
           <div className="carousel-item" data-bs-interval="2000">
-            <img src="/pasta.jpg" className="d-block w-100 " style={{ filter: "brightness(30%)", height: '76vh' }} alt="No image" />
+            <img src="/pasta.jpg" className="hero-img" alt="Pasta" />
           </div>
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
@@ -77,7 +77,7 @@ export default function Home() {
                     (items) => (items.CategoryName === data.CategoryName) && (items.name.toLowerCase().includes(search.toLowerCase())))
                     .map(filterItem => {
                       return (
-                        <div key={filterItem.id} className='col-12 col-md-6 col-lg-3'>
+                        <div key={filterItem.id} className='col-12 col-sm-6 col-lg-4 col-xl-3'>
                           {console.log(filterItem.url)}
                           <Card foodName={filterItem.name} item={filterItem} options={filterItem.options[0]} ImgSrc={filterItem.img} ></Card>
                         </div>

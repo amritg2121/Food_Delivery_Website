@@ -1,0 +1,83 @@
+/* Responsive / mobile styles. Imported last in App.js so it overrides Bootstrap. */
+
+html, body { max-width: 100%; overflow-x: hidden; }
+img { max-width: 100%; }
+
+/* ---------- Hero carousel ---------- */
+.hero-img {
+  display: block;
+  width: 100%;
+  height: 76vh;
+  object-fit: cover;          /* crop instead of stretching */
+  filter: brightness(30%);
+}
+
+/* ---------- Food cards ---------- */
+.food-card {
+  width: 100%;
+  max-width: 20rem;           /* centred on phones */
+  margin-left: auto;
+  margin-right: auto;
+}
+.food-card .card-img-top {
+  height: 140px;
+  object-fit: cover;
+}
+@media (min-width: 576px) {
+  .food-card { max-width: none; }   /* fill the grid column on tablets/desktop */
+}
+
+/* ---------- Cart popup ---------- */
+.app-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(3, 3, 3, 0.7);
+  z-index: 1000;
+}
+.app-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  height: 90dvh;
+  background-color: rgb(63, 117, 119);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+.app-modal-header {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.4rem 0.6rem;
+}
+.app-modal-body {
+  flex: 1 1 auto;
+  overflow-y: auto;            /* long carts now scroll */
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 0.5rem 1rem;
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 575.98px) {
+  .navbar-brand.amrfood-brand { font-size: 1.75rem !important; }
+
+  .hero-img { height: 42vh; min-height: 220px; }
+  .carousel-caption { left: 5%; right: 5%; bottom: 0.75rem; padding: 0; }
+
+  .app-modal { width: 96%; height: 94%; height: 94dvh; }
+  .app-modal-body .container { margin-top: 1rem !important; padding-left: 0.25rem; padding-right: 0.25rem; }
+  .app-modal-body h1.fs-2 { font-size: 1.35rem !important; }
+  .app-modal-body .table { font-size: 0.9rem; }
+  .app-modal-body .table th, .app-modal-body .table td { padding: 0.4rem 0.35rem; }
+
+  /* Login / Signup popups */
+  .modal-content { padding: 1.25rem 1rem; border-radius: 14px; }
+  .modal-title { font-size: 1.5rem; }
+  .modal-body form .btn.m-3 { margin: 0.5rem 0 0.5rem 0.75rem !important; }
+
+  .container { padding-left: 0.75rem; padding-right: 0.75rem; }
+}

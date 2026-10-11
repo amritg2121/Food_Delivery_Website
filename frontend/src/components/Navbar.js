@@ -51,12 +51,12 @@ export default function Navbar() {
 
             </ul>
             {(!localStorage.getItem("authToken")) ?
-              <div className='d-flex'>
+              <div className='d-flex my-2 my-lg-0'>
                 <Link className="btn bg-white text-success mx-1" to="/login" onClick={() => setNavOpen(false)}>Login</Link>
                 <Link className="btn bg-white text-success mx-1" to="/creatuser" onClick={() => setNavOpen(false)}>SignUp</Link>
               </div>
               :
-              <div>
+              <div className='my-2 my-lg-0'>
                 <div className='btn bg-white text-success mx-2' onClick={()=>{setCartView(true)}} >
                   My Cart {" "}
                   <Badge pill bg="danger" > {data.length} </Badge>

@@ -13,6 +13,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
 import Signup from './screens/Signup.js';
 import { CartProvider } from './components/ContextReducer.js';
 import MyOrder from './screens/MyOrder.js';
+import './responsive.css'; // keep last so it overrides Bootstrap
 
 function App() {
   return (
